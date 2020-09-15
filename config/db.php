@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=effect_logistics_db',
+    'dsn' => 'mysql:host=localhost;dbname=effect_log_db',
     'username' => 'root',
     'password' => 'root',
     'charset' => 'utf8',

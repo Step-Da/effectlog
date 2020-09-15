@@ -9,6 +9,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\SignupForm;
 use app\models\Unit;
 
 class SiteController extends Controller
@@ -62,9 +63,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $querySelectUnit = Unit::find();
-        $dataControllResult = $querySelectUnit->orderBy('name')->all();
-        return $this->render('index', ['unit' => $dataControllResult]);
+        //$querySelectUnit = Unit::find();
+        //$dataControllResult = $querySelectUnit->orderBy('name')->all();
+        return $this->render('index');
     }
 
     /**
@@ -85,6 +86,25 @@ class SiteController extends Controller
 
         $model->password = '';
         return $this->render('login', [
+            'model' => $model,
+        ]);
+    }
+
+    /**
+     * Signup action
+     * @return mixed
+     */
+    public function actionSignup()
+    {
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+        return $this->render('signup', [
             'model' => $model,
         ]);
     }
