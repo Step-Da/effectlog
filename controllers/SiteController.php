@@ -63,9 +63,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        //$querySelectUnit = Unit::find();
-        //$dataControllResult = $querySelectUnit->orderBy('name')->all();
-        return $this->render('index');
+        $querySelectUnit = Unit::find();
+        $dataControllResult = $querySelectUnit->orderBy('name')->all();
+        return $this->render('index', ['unit' => $dataControllResult]);
     }
 
     /**

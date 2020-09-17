@@ -1,13 +1,10 @@
 <?php
 
-/* @var $this \yii\web\View */
-/* @var $content string */
-
-
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use app\assets\AppAsset;
+use yii\widgets\Breadcrumbs;
 
 AppAsset::register($this);
 ?>
@@ -57,6 +54,10 @@ AppAsset::register($this);
     ?>
 
     <div class="container">
+        <?= Breadcrumbs::widget([
+            'homeLink' => ['label' => 'Поставщики', 'url' => '/'],
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [], 
+        ]); ?>
         <?= $content ?>
     </div>
 </div>
