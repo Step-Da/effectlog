@@ -3,8 +3,8 @@
 html,
 body {
     height: 100%;
-    background-color: whitesmoke;
-    color: black;
+    background-color: #232327;
+    color: whitesmoke;
     box-sizing: border-box;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -202,3 +202,5 @@ a.desc:after {
     background-color: transparent;
 }
 
+.empty-text{
+}

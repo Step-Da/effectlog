@@ -65,7 +65,7 @@ class SiteController extends Controller
     {
         $querySelectUnit = Unit::find();
         $dataControllResult = $querySelectUnit->orderBy('name')->all();
-        return $this->render('index', ['unit' => $dataControllResult]);
+        return $this->render('index', ['units' => $dataControllResult]);
     }
 
     /**
@@ -121,21 +121,15 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    /**
-     * Displays contact page.
+      /**
+     * Log action.
      *
-     * @return Response|string
+     * @return mixed
      */
-    public function actionContact()
+    public function actionLog()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
+        $querySelectOneUnit = Unit::findAll($_GET['unit']);
+        return $this->render('log', ['unit' => $querySelectOneUnit]);
     }
+
 }

@@ -7,7 +7,7 @@
     align-items: center;
     flex-wrap: wrap;
     min-height: 50vh;
-    background: #232327;
+    background: #232327;    
 }
 
 .card-field{
@@ -107,4 +107,8 @@
     border-radius: 20px;
     text-decoration: none;
     color: snow;
+}
+
+.visibalFnOn{
+    visibility: hidden;
 }
