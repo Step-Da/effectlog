@@ -23,7 +23,7 @@ class AppAsset extends AssetBundle
         'css/site.css',
         'css/mapCard.css',
         'css/loader.css',
-        'css/empty.css'
+        'css/logList.css'
     ];
     public $js = [
         'js/JQuery.js',

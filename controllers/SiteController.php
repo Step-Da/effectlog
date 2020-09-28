@@ -9,8 +9,10 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Parser;
 use app\models\SignupForm;
 use app\models\Unit;
+use yii\data\Pagination;
 
 class SiteController extends Controller
 {
@@ -129,7 +131,19 @@ class SiteController extends Controller
     public function actionLog()
     {
         $querySelectOneUnit = Unit::findAll($_GET['unit']);
-        return $this->render('log', ['unit' => $querySelectOneUnit]);
-    }
+        $json = Parser::jsonParcer();
 
+        $pages = new Pagination([
+            'pageSize' => 10
+        ]);
+        $pages->pageSizeParam = false;
+
+
+        
+        return $this->render('log',[
+            'unit' => $querySelectOneUnit,
+            'data' => $json,
+            // 'pagination' => $pagination
+        ]);
+    }
 }

@@ -6,7 +6,10 @@ use yii\db\Migration;
  * Handles the creation of table `{{%user}}`.
  */
 class m200914_094735_create_user_table extends Migration
-{
+{   
+    /**
+     * {@inheritdoc}
+     */
     public function up()
     {
         $tableOptions = null;
@@ -27,6 +30,9 @@ class m200914_094735_create_user_table extends Migration
         ], $tableOptions);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function down()
     {
         $this->dropTable('{{%user}}');

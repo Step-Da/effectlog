@@ -1,0 +1,54 @@
+{
+    "Effect":[
+        {
+            "title":"First order",
+            "count": "20",
+            "cost": "140000"
+        },
+        {
+            "title":"Second order",
+            "count": "50",
+            "cost": "5670404"
+        },
+        {
+            "title":"Third order",
+            "count": "15",
+            "cost": "21000"
+        },
+        {
+            "title":"Fourth order",
+            "count": "15",
+            "cost": "21000"
+        },
+        {
+            "title":"Fifth order",
+            "count": "15",
+            "cost": "21000"
+        },
+        {
+            "title":"Sixth order",
+            "count": "15",
+            "cost": "21000"
+        },
+        {
+            "title":"Seventh order",
+            "count": "15",
+            "cost": "21000"
+        },
+        {
+            "title":"Eighth order",
+            "count": "15",
+            "cost": "21000"
+        },
+        {
+            "title":"Ninth order",
+            "count": "15",
+            "cost": "21000"
+        },
+        {
+            "title":"Tenth order",
+            "count": "15",
+            "cost": "21000"
+        }
+    ]
+}
