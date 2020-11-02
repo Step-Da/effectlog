@@ -36,6 +36,15 @@ class SignupForm extends Model
         ];
     }
 
+    public function attributeLabels()
+    {
+        return[
+            'username' => 'Имя пользователя',
+            'email' => 'Электронная почта',
+            'password' => 'Пароль'
+        ];
+    }
+
     /**
      * Signs user up.
      * @return User|null

@@ -1,12 +1,11 @@
 <?php
-
-use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use app\assets\AppAsset;
-use yii\widgets\Breadcrumbs;
-
-AppAsset::register($this);
+    use yii\helpers\Html;
+    use yii\bootstrap\Nav;
+    use yii\bootstrap\NavBar;
+    use app\assets\AppAsset;
+    use yii\widgets\Breadcrumbs;
+    
+    AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

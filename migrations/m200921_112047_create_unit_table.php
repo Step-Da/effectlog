@@ -20,7 +20,8 @@ class m200921_112047_create_unit_table extends Migration
 
         $this->createTable('{{%unit}}', [
             'id' => $this->primaryKey(),
-            'name' =>$this->string(60)->notNull()->unique()
+            'name' =>$this->string(60)->notNull()->unique(),
+            'pathApi' => $this->string(50)->notNull()
         ], $tableOptions);
     }
 

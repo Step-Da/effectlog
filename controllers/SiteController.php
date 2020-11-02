@@ -12,6 +12,7 @@ use app\models\ContactForm;
 use app\models\Parser;
 use app\models\SignupForm;
 use app\models\Unit;
+use phpDocumentor\Reflection\Types\Parent_;
 use yii\data\Pagination;
 
 class SiteController extends Controller
@@ -60,7 +61,6 @@ class SiteController extends Controller
 
     /**
      * Displays homepage.
-     *
      * @return string
      */
     public function actionIndex()
@@ -72,7 +72,6 @@ class SiteController extends Controller
 
     /**
      * Login action.
-     *
      * @return Response|string
      */
     public function actionLogin()
@@ -113,7 +112,6 @@ class SiteController extends Controller
 
     /**
      * Logout action.
-     *
      * @return Response
      */
     public function actionLogout()
@@ -125,25 +123,44 @@ class SiteController extends Controller
 
       /**
      * Log action.
-     *
      * @return mixed
      */
     public function actionLog()
     {
-        $querySelectOneUnit = Unit::findAll($_GET['unit']);
-        $json = Parser::jsonParcer();
+        $parser = new Parser();
+        $querySelectOneUnit = Unit::findOne($_GET['unit']);
+        $selectUrl = $querySelectOneUnit->pathApi;
 
-        $pages = new Pagination([
-            'pageSize' => 10
-        ]);
-        $pages->pageSizeParam = false;
+        $json = $parser->jsonParcer($selectUrl);
+        $error = 0; $success = 0;
 
+        foreach($json as $elementJson){
+           $elementJson[0] == $parser->errorStatus ? ($error++) : ($success++);
+        }
 
-        
         return $this->render('log',[
             'unit' => $querySelectOneUnit,
             'data' => $json,
-            // 'pagination' => $pagination
+            'error' => $error,
+            'success' => $success,
+            'url' => $selectUrl,
+            'statusError' => $parser->errorStatus,
+        ]);
+    }
+
+    public function actionView()
+    {   
+        $parser = new Parser();
+        $data = $parser->jsonParcer($_GET['url']);
+        
+        foreach($data as $element){
+            if($element[1] == $_GET['name']){
+                $item = $element;
+            }
+        }
+        return $this->render('view',[
+            'item' => $item,
+            'statusError' => $parser->errorStatus,
         ]);
     }
 }

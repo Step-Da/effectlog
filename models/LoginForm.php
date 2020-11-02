@@ -29,6 +29,15 @@ class LoginForm extends Model
         ];
     }
 
+    public function attributeLabels()
+    {
+        return[
+            'username' => 'Имя пользователя',
+            'remeberMe' => 'Запомнить меня', 
+            'password' => 'Пароль',
+        ];
+    }
+
     /**
      * @param string 
      * @param array
