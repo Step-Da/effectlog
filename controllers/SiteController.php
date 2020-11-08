@@ -132,17 +132,13 @@ class SiteController extends Controller
         $selectUrl = $querySelectOneUnit->pathApi;
 
         $json = $parser->jsonParcer($selectUrl);
-        $error = 0; $success = 0;
-
-        foreach($json as $elementJson){
-           $elementJson[0] == $parser->errorStatus ? ($error++) : ($success++);
-        }
-
+        $statistics = $parser->compilingStatistics($json);
+      
         return $this->render('log',[
             'unit' => $querySelectOneUnit,
             'data' => $json,
-            'error' => $error,
-            'success' => $success,
+            'error' => $statistics['error'],
+            'success' => $statistics['success'],
             'url' => $selectUrl,
             'statusError' => $parser->errorStatus,
         ]);
@@ -161,6 +157,7 @@ class SiteController extends Controller
         return $this->render('view',[
             'item' => $item,
             'statusError' => $parser->errorStatus,
+            'unit' => $_GET['unit'],
         ]);
     }
 }

@@ -6,12 +6,9 @@
     class Parser extends Model
     {
         public $errorStatus = 10;
-
+        
         public static function jsonParcer($url)
-        {
-
-            //$url = 'https://effect-gifts.ru/api/?action=getHappyLogs';
-   
+        {   
             $crequest = curl_init();
             curl_setopt($crequest, CURLOPT_HEADER, 0);
             curl_setopt($crequest, CURLOPT_RETURNTRANSFER, 1);
@@ -22,8 +19,21 @@
             $response = curl_exec($crequest);
             curl_close($crequest);
             $data = json_decode($response);
-            //var_dump($data);
             return $data;
+        }
+
+        public function compilingStatistics($json)
+        {
+            $error = 0;
+            $success = 0;
+            foreach($json as $elementJson){
+                $elementJson[0] ==  $this->errorStatus ? ($error++) : ($success++);
+            }
+            $statisitics = array(
+                'error' => $error,
+                'success' => $success
+            );
+            return $statisitics; 
         }
     }
 ?>
