@@ -1,3 +1,4 @@
+// Функция для отображения лоудера при загрузке библеотеки постовщиков.
 $(document).ready(function(){
     setTimeout(() =>{
         $('#loader').fadeOut('slow');

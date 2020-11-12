@@ -5,16 +5,18 @@ use yii\base\Model;
 use app\models\User;
 
 /**
- * Signup form
+ * Модель формы регистрации пользователя в системе.
  */
 class SignupForm extends Model
 {
-    public $username;
-    public $email;
-    public $password;
+    public $username; // Новое наименование пользователя.
+    public $email; // Новый адрес электронной почты пользователя.
+    public $password; // Новый пароль пользователя.
 
 
     /**
+     * Правила для полей формы регистрации пользователя в системе.
+     * 
      * @inheritdoc
      */
     public function rules()
@@ -36,6 +38,11 @@ class SignupForm extends Model
         ];
     }
 
+    /**
+     * Русификация полей формы реистрации пользователя в системе.
+     * 
+     * @return array
+     */
     public function attributeLabels()
     {
         return[
@@ -46,7 +53,8 @@ class SignupForm extends Model
     }
 
     /**
-     * Signs user up.
+     * Функция для создания новго профиля пользователя в системе.
+     * 
      * @return User|null
      */
     public function signup()

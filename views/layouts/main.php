@@ -63,7 +63,6 @@
 
 <footer class="footer footer-color">
     <div class="container">
-        ...
     </div>
 </footer>
 

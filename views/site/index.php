@@ -1,10 +1,12 @@
 <?php
-    use yii\helpers\Html;
-    $this->title = 'EffectLog';
+use yii\helpers\Html;
+    
+$this->title = 'EffectLog';
 ?>
 <div class="site-index">
     <div class="body-content">
         <?php if (sizeof($units)) : ?>
+            <!-- Лоудер -->
             <div id="loader" class="area-loader">
                 <div class='loader-object'>
                     <span class="loader-list">
@@ -13,6 +15,7 @@
                     <div class="text-loader">Loading ...</div>
                 </div>
             </div>
+            <!-- Библиотека (меню) поставщиков -->
             <div class="area">
                 <?php foreach ($units as $element) : ?>
                     <div class="card-field ">

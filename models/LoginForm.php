@@ -6,18 +6,22 @@ use Yii;
 use yii\base\Model;
 
 /**
+ * Модель формы авторизации пользователя в системе.
+ * 
  * @property User|null
  */
 class LoginForm extends Model
 {
-    public $username;
-    public $password;
-    public $rememberMe = true;
+    public $username; // Наименование пользователя.
+    public $password; // Пароль пользователя.
+    public $rememberMe = true; // Запоминание данных, которые ввел пользователь.
 
     private $_user = false;
 
 
     /**
+     * Правила для полей формы авторизации пользователя в системе.
+     * 
      * @return array
      */
     public function rules()
@@ -29,6 +33,11 @@ class LoginForm extends Model
         ];
     }
 
+    /**
+     * Русификация полей формы авторизации пользователя в системе.
+     * 
+     * @return array
+     */
     public function attributeLabels()
     {
         return[
@@ -39,6 +48,8 @@ class LoginForm extends Model
     }
 
     /**
+     * Функция для проверки пароля при авторизации.
+     * 
      * @param string 
      * @param array
      */
@@ -54,6 +65,8 @@ class LoginForm extends Model
     }
 
     /**
+     * Функция для запоминания данных после прохождения процесса авторизации.
+     * 
      * @return bool
      */
     public function login()
@@ -65,6 +78,8 @@ class LoginForm extends Model
     }
 
     /**
+     * Получение данных пользователя
+     * 
      * @return User|null
      */
     public function getUser()

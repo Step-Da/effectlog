@@ -3,11 +3,13 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `{{%unit}}`.
+ * Обрабатывает создание таблицы `{{%unit}}`.
  */
 class m200921_112047_create_unit_table extends Migration
 {
     /**
+     * Функция для применения миграции.
+     * 
      * {@inheritdoc}
      */
     public function up()
@@ -26,6 +28,8 @@ class m200921_112047_create_unit_table extends Migration
     }
 
     /**
+     * Функция для отмены (отката) миграции.
+     * 
      * {@inheritdoc}
      */
     public function down()

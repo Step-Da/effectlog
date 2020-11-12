@@ -8,7 +8,7 @@ use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
 /**
- * User model
+ * Модель пользователя в системе
  *
  * @property integer $id
  * @property string $username
@@ -24,6 +24,8 @@ use yii\web\IdentityInterface;
 class User extends ActiveRecord implements IdentityInterface
 {
     /**
+     * Функция для получения наименование сущности(таблицы).
+     * 
      * @inheritdoc
      */
     public static function tableName()
@@ -59,7 +61,7 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Finds user by username
+     * Функция для нахождения пользователя по наименования.
      *
      * @param string $username
      * @return static|null
@@ -70,9 +72,9 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Finds user by password reset token
+     * Функция для нахождения пользовтеля при помощи токена для востоновления пароля.
      *
-     * @param string $token password reset token
+     * @param string $token токен востановления пароля.
      * @return static|null
      */
     public static function findByPasswordResetToken($token)
@@ -85,9 +87,9 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Finds out if password reset token is valid
+     * Функция для проверки подленности токена для востановаления пароля.
      *
-     * @param string $token password reset token
+     * @param string $token токен востановления пароля.
      * @return bool
      */
     public static function isPasswordResetTokenValid($token)
@@ -126,10 +128,10 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Validates password
+     * Функция для проверки пароля.
      *
-     * @param string $password password to validate
-     * @return bool if password provided is valid for current user
+     * @param string $password пароль для процерки.
+     * @return bool если пароль действительный для данного пользователя.
      */
     public function validatePassword($password)
     {
@@ -137,7 +139,7 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Generates password hash from password and sets it to the model
+     * Функция для генерации хэша пароля из пароля и подстановки его в модель.
      *
      * @param string $password
      */
@@ -147,7 +149,7 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Generates "remember me" authentication key
+     * Функция для генерации ключа «запомнить меня»
      */
     public function generateAuthKey()
     {
@@ -155,7 +157,7 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Generates new password reset token
+     * Функция для генерации новго токена сброса пароля.
      */
     public function generatePasswordResetToken()
     {
@@ -163,7 +165,7 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Removes password reset token
+     * Функция для удаления токена сброса пароля.
      */
     public function removePasswordResetToken()
     {

@@ -10,6 +10,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <p>Пожалуйста, введите свой логин и пароль для прохождения авторизации:</p>
 
+    <!-- Форма авторизации пользователя в системе -->
     <?php $form = ActiveForm::begin([
         'id' => 'login-form',
         'layout' => 'horizontal',

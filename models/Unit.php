@@ -1,18 +1,22 @@
 <?php
 namespace app\models;
 
-use Yii;
 use yii\db\ActiveRecord;
 
 /**
- * @property int
- * @property string
- * @property string
+ * Модель поставщиков(компаний).
+ * 
+ * @property int $id
+ * @property string $name
+ * @property string $pathApi
  */
 class Unit extends ActiveRecord
 {
     /**
+     * Функция для получения наименование сущности(таблицы).
+     * 
      * {@inheritdoc}
+     * @return string
      */
     public static function tableName()
     {
@@ -20,6 +24,8 @@ class Unit extends ActiveRecord
     }
 
     /**
+     * Правила для полей модели поставщиков.
+     * 
      * {@inheritdoc}
      */
     public function rules()
@@ -33,6 +39,8 @@ class Unit extends ActiveRecord
     }
 
     /**
+     *  Русификация полей модели поставщиков.
+     * 
      * {@inheritdoc}
      */
     public function attributeLabels()

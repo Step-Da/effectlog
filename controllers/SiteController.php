@@ -8,12 +8,9 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
-use app\models\ContactForm;
 use app\models\Parser;
 use app\models\SignupForm;
 use app\models\Unit;
-use phpDocumentor\Reflection\Types\Parent_;
-use yii\data\Pagination;
 
 class SiteController extends Controller
 {
@@ -60,7 +57,8 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays homepage.
+     * Функция для отображения домашней страницы.
+     * 
      * @return string
      */
     public function actionIndex()
@@ -71,7 +69,8 @@ class SiteController extends Controller
     }
 
     /**
-     * Login action.
+     * Функция для отображения страницы авторизации пользователя в системе.
+     * 
      * @return Response|string
      */
     public function actionLogin()
@@ -92,7 +91,8 @@ class SiteController extends Controller
     }
 
     /**
-     * Signup action
+     * Функция для отображения страницы регистрации пользователя в системе.
+     * 
      * @return mixed
      */
     public function actionSignup()
@@ -111,18 +111,20 @@ class SiteController extends Controller
     }
 
     /**
-     * Logout action.
+     * Функция для выхода из профиля пользователя.
+     * Переадресация на домашнею (главную) страницу.
+     * 
      * @return Response
      */
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
         return $this->goHome();
     }
 
-      /**
-     * Log action.
+    /**
+     * Функция для отображения списка компонентов обновления остатков.
+     * 
      * @return mixed
      */
     public function actionLog()
@@ -144,6 +146,12 @@ class SiteController extends Controller
         ]);
     }
 
+    /**
+     * Функция для отображения подробной информации о выбранном 
+     * компоненте обновления остатков.
+     * 
+     * @return mixed
+     */
     public function actionView()
     {   
         $parser = new Parser();
